@@ -11,31 +11,44 @@ using namespace std;
 const int HOW_MANY_INPUT = 10;
 
 //Prototypes...
-bool validImage()/*checks if actually a bmp. if not, print an error and make them
+/*bool validImage() checks if actually a bmp. if not, print an error and make them
                    do it again*/
 
-bool sizeCheck()// checks size of image
+//bool sizeCheck()// checks size of image
 
-void getFileNames(vector<string> get_fileNames);// asks user for file name1
+vector<string> getFileNames(vector<string> get_fileNames); // asks user for file name1
 
 
 
-void printMatrix( vector <vector <char> > );
+//void printMatrix( vector <vector <char> > );
 
-void combine(vector<Bitmap> pics)
+void combine(vector < vector < vector< Pixel > > >);
+
+
 //Main program...
 int main()
 {
-/*
-   1.Input image and make sure it is valid bmp
-   2.
-   3.put each image into pixel matrix
-   4.
-   5.
-*/
+  /*
+
+     1.Input image and make sure it is valid bmp
+     2.
+     3.put each image into pixel matrix
+     4.
+     5.
+  */
+
+  Bitmap image;
+  vector <string> fileNames;
+  vector<vector<vector< Pixel > > > bmp;
+  Pixel rgb;
+
+  fileNames = getFileNames(fileNames);
+
+
 return 0;
 }
 
+/*
 void combine(vector<Bitmap> pics)/////333333
 {
   vector<vector<Pixel> > result;
@@ -44,22 +57,27 @@ void combine(vector<Bitmap> pics)/////333333
   current_pic = image.toPixelMatrix();
   result[][] = current_pic/ pics.size()
 }
+*/
 
 
 
 
-
-vector<string> get_filenames()//1111111111
+vector<string> getFileNames(vector<string> get_fileNames)//1111111111
 {
-  cout << "yo"
-  string s;
-  vector<string> v;
-  while(cin >> s)
-    v.push_back(s);
-  return v;
+  vector<string> imgv;
+  int count=0;
+
+  string fileName;
+  cout<< "Please enter a file you wish to add."<< endl;
+
+  cin>> fileName;
+
+    imgv.push_back(fileName);
+    return imgv;
+
 }
 
-
+/*
 validImage()//2222222222222222
 {
 bool validBmp;
@@ -84,13 +102,19 @@ if( validBmp == true )
 }
 
 
-
+/*
+validImage()//2222222222222222
+{
 Bitmap image;
 image.open(fileName);
 vector<Bitmap> images
+
+
 if( image.isImage() )
 {
   images.push_back(image)
 }
 vector<vector<Pixel>> bmp;
 bmp = image.toPixelMatrix();
+}
+*/
